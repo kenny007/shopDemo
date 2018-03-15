@@ -22,8 +22,7 @@
                     <tr>
                         <th>
                             <button class='btn btn-primary'
-                             (click)='toggleImage()'
-                            >
+                             (click)='toggleImage()'>
                                {{showImage?'Hide ':'Show'}} Image
                             </button>
                         </th>
@@ -34,6 +33,7 @@
                         <th>5 Star Rating</th>
                     </tr>
                 </thead>
+
                 <tbody>
                   <tr *ngFor='let product of products'>
                     <td><img *ngIf='showImage'
@@ -42,7 +42,7 @@
                          [style.margin.px] ='imageMargin' > 
                     </td>
                     <td>{{ product.productName }}</td>
-                    <td>{{product.productCode | lowercase}}</td>
+                    <td>{{product.productCode | lowercase | convertToSpaces:'-'}}</td>
                     <td>{{ product.releaseDate }}</td>
                     <td>{{ product.price | currency:'USD':true:'1.2-2' }}</td>                  
                     <td>{{product.starRating}}</td>
@@ -52,6 +52,6 @@
         </div>
     </div>
 </div>
-<div class='alert alert-danger'>
+<div ng-hide=true class='alert alert-danger'>
 
 </div>

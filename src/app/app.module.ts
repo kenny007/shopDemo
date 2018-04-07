@@ -12,8 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ProductListComponent,
     ConvertToSpacesPipe,
-    StarComponent
-  ],
+    StarComponent ],
   imports:[
     BrowserModule,
     FormsModule,

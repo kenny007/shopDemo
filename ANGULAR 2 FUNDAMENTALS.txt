@@ -1,0 +1,60 @@
+-Basic Node and Npm
+-Modules and Module Loaders (modules and systemjs)
+Javascript module fundamentals course
+ES2015 or ES6 syntax
+TypeScript (You are not required to know TypeScript to write angular2 app but it's the most mainstream approach)
+-When we practice it helps to cement what has been learnt and breaks down misconceptions in our learning
+
+jcoop.io/angular-2-practice-exercises
+*Modules will be used to keep our codes in small maintenable pieces
+Javascript modules are important as they help keep things off the global scope
+SystemJS is powerful as it analyzes the code and looks for imports and exports and only
+when the code is executed that it loads the files required so I will load system.js and config.js that
+contain
+
+-BLOCKCHAIN is a transaction database it records a ledger, it records transaction for public records
+(Trade, issue and authorize digital certificates such as stocks and bond without having to rely on a
+broker, syscoin worth is determined by the worth of the services that the network provides, so its the
+first virtual currency that has intrinsic value. Syscoin is business on the blockchain.)
+
+TYPESCRIPT OVERVIEW
+-It is a superset of JS that means that anything you can do it JS you can also do in TS using the exact
+same syntax, it could also mean that many other things can be accomplished
+TS are converted to JS by the compiler via transpilation, TS code is only a development environment 
+construct, it doesn't give anything in production that you couldn't have accomplished in plain old JS
+-You can write JS and pass it thru TS compiler and it will work just fine
+TYSCRIPT FEATURES
+-Static Typing: This allows us to specify datatypes for variables, properties, parameters etc
+So we can have let name: string, let age: number, let birthDate: date
+-Interfaces: We can define Interfaces for entire objects and that will enforce the shape of objects
+so we can have interface ICat{
+  name:string
+  age?:number
+}
+let fluffy:ICat
+-If we want the age to be optional we can add a question mark to the interface declaration of the age
+property
+-Class Properties : We can initiate the name of a Cat in a constructor like this
+ class Cat{
+	name:string  //this make the name property declaration more explicit
+	colr:string  //the types aren't necessary
+    constructor (name){
+	this.name = name;
+}
+}
+-Public/Private Accessibility
+ class Cat{
+	name:string  //this make the name property declaration more explicit
+	colr:string  //the types aren't necessary
+    constructor (name){
+	this.name = name;
+}
+speak() { console.log('My name is: ' + this.name) } 
+The speak function can be access by any other function within the class
+They are also accessible outside the class, this is because class members are public by default in ES2015 and TS
+//All the members of this class are accessible internally
+-To make a class member private just add the private keyword and any attempt to access it outside the
+class gives a compile time-error
+-The main purpose of module is to separate parts of the application and don't load some scripts until
+they are required
+}

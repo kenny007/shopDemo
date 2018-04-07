@@ -1,0 +1,295 @@
+trends.builtwith.com
+https://github.com/angular/quickstart -angular quickstart
+we can use Angular CLI to generate boilerplate code
+-Angular CLI is the recommended tool for building, testing and deploying Angular 2 application
+https://github.com/angular/angular-cli
+https://blogs.msmvps.com/deborahk/angular-2-getting-started-problem-solver/
+www.typescriptlang.org/playground/
+https://developer.mozilla.org/en-US/docs/Web/Events //Valid DOM Events
+
+NEXT TUTORIAL
+https://www.udemy.com/the-complete-guide-to-angular-2/learn/v4/t/lecture/6655678?start=0
+
+-Makes Expressive HTML with if condition, for loops and local variables
+Why a New Angular? Built for speed, faster change detection, improved rendering time, it supports classes, modules and decorators
+used in modern angular, simpler API, fewer built in directory to learn, simpler binding and enhances productivity
+
+ANATOMY OF AN ANGULAR APPLICATION NOT ANGULAR.JS
+-AngularJS is a framework for building reactive SPA
+-Application = Sets of components + services that provides functionality to the components
+-As we build the application it's developed into cohesive block called modules.
+
+AppModule defines the boundary and context through which the component resolves it's directives and dependencies
+##Selecting a Language
+When using ES 2015 (classes, let, arrows etc) you need to transpile to ES 5 for it to run in our browser)
+-TypeScript this is a superset of Javascript and it must be transpiled, strong typing(everything has a datatype), Great IDE tooling
+ES 5, ES 2015, Dart, TypeScript
+TYPESCRIPT
+-Open source language, Superset of Javascript, Transpiles to plain Javascript
+It is strongly typed so every variable, function, function parameter can have a datatype
+Class-based object orientation, it implements class based object inheritance
+
+Node Package Manager is a command line utility that interract with the repository of open-sourced projects
+npmjs.com
+SETTING UP AN ANGULAR APPLICATION
+
+1. Create an application folder
+2. Add package definition and configuration files
+3. Install the packages
+4. Create the app's Angular Module
+5. Create the main.ts file to load the module
+6. Create the host Web Page (index.html)
+
+
+#So vs code has an integrated terminal for development Go to view and select it
+node_modules is the folder where all libraries are installed
+-when we type 'npm start' it executes command found in the start portion of the config
+Ctrl + C, Y plus exit to stop the server from running
+
+MODULES (Help to organize code and resolve namespacing issues and helps keep things out of the global namespace)
+ES 2015 a module is a file and file is a module
+#How modules are created in ES 2015, if we have a file named product.ts and we write an export code in it,
+automatically it becomes a module
+EXPORT
+export class Product{
+
+}
+IMPORT
+import {Product} from './product'  //here we declare the name we want to import and the file we want to import if from
+-Angular modules help organize an app into a cohesive blocks of functionalities
+-Es Modules are about code files while angular modules are about our apllication
+
+COMPONENT
+-A class is a construct that helps us to define a type
+-A class becomes a component when you give it component metadata
+-A function that adds metadata to a class, its members, or its method arguments. Prefixed with an @, Angular provides built-in decorators
+When defining a decorator we define it immediately above the class
+#A component should always have a template
+-Before we use an external function or class, we define where to find it and we do that using import statement
+-We can import from Angular because it is Modular
+~ https://www.npmjs.com/~angular    contains a list of angular packages
+Component = Template (HTML defining fragment for the view of the application) + class associated to the view(properties, methods) + metadata
+#A component must belong to one and only one module
+
+-Angular CLI uses webpack our angular typescript are listed under webpack node
+
+#ANGULAR IS ALL ABOUT COMPONENTS
+1. When creating a class give it a clear name, use PascalCasing for this, Append "Component" to the name, include export keyword in the class signature
+2. Data in properties (Appropriate data type, appropriate default value, camelCase with first letter lowercase)
+3. Logic in methods (camelCase with first letter lowercase)
+-selector property isn't needed if the component isn't used in any HTML
+
+TEMPLATES, INTERPOLATION, AND DIRECTIVES
+-There are 2 ways to expose a component in an angular module 
+1. we can declare the component in an angular module 
+2. If it is declared in another module, we have to import the module in which it is declared
+#Everything that is declared must be imported
+-There are built in angular directives
+
+BINDING
+Coordinates communication between the component's class and its template and often involves passing data
+INTERPOLATION {{}} 
+This is a one-way binding from the class property to the template, we use interpolation to insert the interpolated text into the html elements
+2. We can use it with element property assignment
+
+DIRECTIVE
+-Custom HTML element or attribute used to power up and extend our HTML (custom or built in)
+Structural directives (*ngIf:If logic and *ngFor: For loops)
+-BrowserModule exposes both the ngIf and ngFor directives
+-In typescript we use any[] as the data type anytime we don't know or don't care what the data type is
+
+ES 2015 has both for...of  vs  for...in
+* For..of Iterates over iterable objects, such as an array. 
+e.g let nicknames = ['di','boo','punkeye'];
+for (let nickname of nicknames){
+     console.log(nickname);
+}  Result: di, boo, punkeye
+
+* For...in Iterates over the properties of an object
+e.g let nicknames = ['di','boo','punkeye'];
+for (let nickname in nicknames){
+     console.log(nickname);
+}  Result: 0, 1, 2
+
+DATA BINDING AND PIPE
+-PB allows us to set the property of an element to the value of a template expression, our binding target is always enclosed
+in squared bracket to the left of the equals [] and binding source is always enclosed in quote to the right of the equals and
+specifies the template expression.
+<img [src]='product.imageUrl'> - Property binding
+ <img src={{product.imageUrl}}> - PB should be preferred over interpolation
+-If you need to use the expression as part of a larger expression you may need to use interpolation
+<img src='http://openclipart.org/{{product.imageUrl}}'>
+
+EVENT BINDING
+<button (click) = 'toggleImage()' > toggleImage is component class method
+#By convention create method after all the properties are defined
+#ngModule is part of the FormsModule
+-to program an interactive interface we should store the users last entered filter string and use as the default filter
+
+TRANSFORMING DATA WITH PIPES
+-Transform bound properties before display so as to format them or make them more appropriate for display
+Built-in pipes (date, number, decimal, percent, currency, (json, slice)=for working with Objects, upperCase, lowerCase etc) check up angular pipes
+-we can chain pipes, some pipes specify parameters {{product.price | currency: 'USD':true:'1.2-2'}}
+
+DATABINDING IN ANGULAR (DOM-COMPONENT)
+Interpolation: {{pageTitle}}
+Property Binding: <img [src]='product.imageUrl'>
+Event Binding: <button (click)='toggleImage()'>
+Two-Way Binding: <input [(ngModel)] ='listFilter' />
+
+IMPROVING OUR COMPONENTS
+-Strong typing helps to minimize errors through better syntax checking and improved tooling, if there are not strong predefined type for a property we define it ourselves using an interface
+-Encapsulating styles if needed
+-Lifecycle hooks
+-Custom pipes
+-Nested components
+
+INTERFACE
+-A specification identifying a related set of properties and methods, A class commits to supporting the specification by implementing the interface. Use the interface as a data type, development time only! ES5 and ES2015 don't support it
+-Using Interface as a datatype, import the Interface and user it as a datatype in the class
+-Strong typing helps in better syntax checking, it gives us intellisense for the properties
+-In our product file we could define an interface for the product business object as well if that class provides some functionalities we want
+to use throughout our application
+
+HANDLING UNIQUE COMPONENT STYLES
+-Templates sometimes requires unique styles
+-We can inline the styles directly into the HTML (difficult to maintain)
+-We can build an external stylesheet and link it in the index.html (easier to maintain but puts the burden on the container
+component to ensure the external stylesheet is linked in the index.html making our nested component somewhat difficult to reuse)
+styles and styleUrls of the component decorator work better, this allows us to apply to a particular part of the application and won't leak out.
+
+COMPONENT Lifecycle
+-A component has a lifecycle managed by Angular. Angular Creates, Renders, Create and render children, Process changes and Destroys it before removing it's
+template from the DOM, Angular provides a set of lifecycle hooks to tap into the lifecycle to perform operation as it is needed.
+OnInit: Perform component component initialization after angular has initiated it's databound properties, 
+retrieve data from a backend service
+OnChange:Used to perform any action after Angular set databound input properties
+OnDestroy: To perform cleanups before angular destroys the component
+-To use a lifecycle hook we implement the lifecycle hook interface, it's not compulsory to implement the interface in
+our application it only provides better tooling and it's a good practice if we do
+-When we implements something we must write code for every property and method in that interface
+
+TRANFORMING DATA WITH PIPES (BUILDING CUSTOM PIPES)
+#Note that Angular provides a very consistent coding experience
+-If we had several modules, we add it to the module of the component that needs the pipe
+
+CUSTOM PIPES
+-Angular doesn't offer custom pipes because they perform poorly and prevent aggressive minification. Angular doesn't have a built in pipe to provide
+filtering and sorting
+-The Angular team and many experienced Angular developers strongly recommend moving filtering and sorting logics into the component itself
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter (Read more abou the filter method)
+
+
+NESTED TEMPLATE
+-pm-root directive is described as the app component selector, we can use our component as a routing target so it appears to user as if they have traveled
+to another view, any view can be nested if they have a selector defined in the component decorator.
+a. A component is also nestable if it only manages a fragment of a larger view
+b. It has a selector
+c. It optionally communicates with it's container
+-When building an interactive application the nested component usually needs to communicated with it's container, a nested component receives info from it's
+container using input properties and the nested component returns OUTPUT to the parents by raising events.
+-If a nested component wants to receive input from it's container it must expose a property to it's container, it will expose a property it can use to receive
+input from it's container (@Input()- its a function so we add parenthesis) decorator is used, we use it to decorate any property in the nested component class and this works with any property type 
+including an object and the container sets the value by using property binding.
+-If the nested component wants to send data(output) to it's container it can use the @Output() decorator to achieve that and the data to pass becomes
+the event payload.
+-TypeScript supports generics if we want to pass multiple values in the Object
+-In the onClick we want to raise the event and pass along our message, so we use the event property and pass the emit method passing in the desired string
+-We use eventBinding to check/listen for the event that is raised by the nested component, $event passes along any information associated with the generated event
+#We can think of the properties decorate as Input and Output in the nested component as the public API every other thing declared in the component are 
+encapsulated and only accessible to the template and class
+
+SERVICES AND DEPENDENCY INJECTION
+-This is used for building services that are shared across components, we use DI to inject the service into components that need it
+#Difference between template driven forms and reactive forms
+
+SERVICE
+-A class with a focused purpose.
+Used for features that:
+-Are independent from any particular component.
+-Provide shared data or logic across components
+-Encapsulate external interactions such as data access by moving this interaction to services the code is easier to test, debug and reuse
+-Since angular provides a built in injector we register our services with it and it maintains a container of registered services, the injector creates
+and manages the single instance (singleton), if a component needs a service it declares it the angular Injector class then injects or provides an
+instance of the service class when the component class is instantiated this process is called dependency injection, this is the recommended way of using
+services as it provides sharing of data and other resources and the services are easier to mock for testing purposes.
+
+DEPENDENCY INJECTION
+-A coding pattern in which a class receives the instances of objects it needs (called dependencies) from an external source rather than creating
+them itself. The external source is called an injector.
+
+BUILDING A SERVICE
+1. Create the service class
+2. Define the metadata with a decorator
+3. Import what we need
+-when building services we often the @Injectable decorator but this is optional unless the service has it's own injected dependency 
+of it's own but it's a good practice to add it to every service.
+Our service doesn't have properties so we are basically using it to encapsulate data access features
+
+REGISTERING A SERVICE
+-Register a provider (A code that can create or return a service usually the service class itself defined in component or Angular module metadata
+REGISTERED IN COMPONENT:
+If injected into the components metadata it can provide it to itself and his own children as well 
+
+REGISTERED IN ANGULAR MODULE: 
+This is registered with the Injector at the application root making the service available everywhere in the application.
+If we register a service in both ProductComponent and ProductDetailComponent we will no longer have singleton as the angular injector will now be 
+managing two instances of the service we should instead register it in the root app component to avoid this, this way the angular injector can inject
+this service into any component in the application, the provider property is an array.
+-Once we register a service in the app component it can be injected into any child component. 
+DI: we specify a private variable to hold the instance of the injected service, our dependencies are, we identify our dependencies as specifying them as
+parameters to the dependency functions, when the component is constructed the Angular Injector sets the constructor parameter to the instance of the
+constructed service and then assign the injected service instance to our local variable which can then be used anywhere in the class to access 
+properties and methods
+constructor(private _productService: ProductService){} //this is a shorthand for creating a local variable, cons params and assignment it's value to
+the constructor params
+
+REGISTERING A SERVICE IN A Component
+-Select the appropriate level in the hierarchy
+-Root component if service is used throughout throughout the application
+-Specific component if only that component uses the service
+-Otherwise select a common ancestor of the component that needs the service
+
+HTTP CALL: OBSERVABLES AND REACTIVE EXTENSIONS
+-Observables help us to manage aysnc data such as data coming from a backend service
+-Treat event as a collection : An array show items arrive asynchronously over time
+-Are a proposed feature for ES 2016       -Use Reactive Extensions(RxJS)   
+-Are used within Angular
+Observables help us to manipulate set of events with operators (they are methods on observables that compose new observables)
+Each operator transforms the source observables in some way, 
+They don't wait for all the values and process them at once
+Process each value as it is emitted
+Examples: map, filter, take, merge, ... 
+map operator helps us to transform the incoming data and the argument to the map operator is an arrow function 
+map(x => 10 * x) it says take each data and transform it to 10 times it's original value
+htto://rxmarbles.com
+
+PROMISE  VS OBSERVABLES
+-Provides a single future value  - Emits multiple values over time
+-Not lazy						 - Lazy
+-Not cancellable                 - Cancellable  (Supports map, filter, reduce and similar operators)
+
+-Even though angular supports promises but we will explore the power of observables
+#Promise is basically anything that has a future value or delayed response, JS uses promises every good framework or library should use it.
+var getProfile = $.ajax({type:'GET', url:'profile.json'}); //this is a deffere object or a promise
+If it is a promise it has a then function.
+Notice that in jQuery if it is a promise you can store it an object and then work with it later
+
+-Imports, Exports, Declarations, Providers and Bootstrap
+
+SENDING AN HTTP REQUEST
+Observable<IProduct[]> this takes in the type of the data it is observing and maps to it when returned
+-Observable has a do operator that helps us to peek into the data returned from the server without disrupting the flow,
+for any additional operator we are using we need to add an import statement
+
+SUBSCRIBING TO AN OBSERVABLE
+x.then(valueFn, errorFn)         //Promise - this is how you receive the result in a promise
+x.subscribe(valueFn, errorFn)    //Observable since observable handles multiple values over time the value
+ function is called called for each value the observable emits, in some cases we want to know when the
+observable completes so it provides a third function
+x.subscribe(valueFn, errorFn, completeFn) //note that the subscribe function returns a subscription
+let sub = x.subscribe(valueFn, errorFn, completeFn)
+-Since observables are lazy they don't start emitting values until subscribe is called
+<any>error is a casting operator where we are casting what is returned to any data tyoe
+

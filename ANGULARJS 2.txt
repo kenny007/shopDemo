@@ -263,7 +263,7 @@ Process each value as it is emitted
 Examples: map, filter, take, merge, ... 
 map operator helps us to transform the incoming data and the argument to the map operator is an arrow function 
 map(x => 10 * x) it says take each data and transform it to 10 times it's original value
-htto://rxmarbles.com
+http://rxmarbles.com
 
 PROMISE  VS OBSERVABLES
 -Provides a single future value  - Emits multiple values over time
@@ -293,3 +293,38 @@ let sub = x.subscribe(valueFn, errorFn, completeFn)
 -Since observables are lazy they don't start emitting values until subscribe is called
 <any>error is a casting operator where we are casting what is returned to any data tyoe
 
+# When we have a get request that may arrive at a later time it is always good to put the filterd List variable under the subsribers.
+
+
+sudo npm install -g @angular/cli to install the angular cli
+TO GENERATE A NEW COMPONENT USING ANGULAR-CLI use ng g c component path/name this creates a folder for the component
+but if we use  use ng g c component path/name --flat tp prevent creating it's own folder
+-Always look for a way to prevent undefined property errors we can use a safe navigation operator i.e ? 
+product.productName this guides against null & undefined values in object properties, even though it is great it doesn't work with ngModel
+in two-way binding
+2. We can add ngIf to the HTML surrounding the stuff
+NOTE that the selector property is only required when the component is going to be nested within another component
+but we are displaying the view as part of the routing.
+-An angular app is a SPA
+
+HOW ROUTING WORKS
+Configure a route for each component that wants to display it's view, we tie a route to each menu item using a 
+built-in directive called routerLink e.g <a routerLink="/products">Product List</a> by default angular uses HTML5
+url style which doesn't include hash.
+-When the browsers url changes the angular router looks for a route definition matching the path segment 
+for example we have {path:'products', component: productListComponent} this also shows the url to load when 
+this route is activated and it displays it where we have <router-outlet> and the product list appears
+Routing is component based so we identify the list of templates for routing targets and we configure them
+
+CONFIGURING ROUTES
+-Register the router service
+-Declares the router directives like routerLink and routerOutlet if we don't import the service these guys don'take
+become available
+-Exposes configured routes we need to ensure the routes are available to the application before we can navigate
+to them which is done by passing it to routerModule like RouterModule.forRoot([], useHash: true})
+NOTE: The order of routes in the array matters, routers uses first match wins strategy when matching the routes
+this means more specific routes should always be before least specific routes such as the wildcard route which
+is used for 404 pageNotFound
+-To start routing we must first define a base tag in the index.html file like this <base href="/">
+# We need to have a redirectTo part that redirects to the default component we want loaded when the app starts
+It is good to define a wild card path in the event our route doesn't match any defined in the configuration

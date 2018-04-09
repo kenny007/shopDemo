@@ -3,7 +3,6 @@ import {IProduct} from './product';
 import { ProductService } from './product.service';
 
 @Component({
-    selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls:['./product-list.component.css']
 })
@@ -48,11 +47,10 @@ toggleImage(): void {
 ngOnInit(): void{
   // this.products = 
    this._productService.getProducts()
-   .subscribe(  products => {
+   .subscribe( products => {
     this.products = products,
     this.filteredProducts = this.products;
-   },
-      
+   },     
          error => this.errorMessage = <any> error);
   
 }
